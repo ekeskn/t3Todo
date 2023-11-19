@@ -16,9 +16,9 @@ export const todoRouter = createTRPCRouter({
       todos.map(({ id, text, done }) => ({ id, text, done })),
     );
     return [
-      { id: "fake", text: "fake text", done: false },
+      { id: "fake", text: "fake text", done: false},
       { id: "fake2", text: "fake text2", done: true },
-    ];
+    ]; 
   }),
 
   create: protectedProcedure
@@ -46,6 +46,7 @@ export const todoRouter = createTRPCRouter({
       return ctx.db.todo.update({
         where: { id },
         data: { done },
+        
       });
     }),
 });
